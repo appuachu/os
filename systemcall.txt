@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<stdlib.h>
+void main(void)
+{
+char *path,path1[10];
+struct stat *nfile;
+nfile=(struct stat *) malloc (sizeof(struct stat));
+printf("enter name of file whose statistics has to:");
+scanf("%s",path1);
+stat(path1,nfile);
+printf("\nuser id: %d\n",nfile->st_uid);
+printf("block size :%lu\n",nfile->st_blksize);
+printf("time of last modification: %lu\n",nfile->st_atime);
+printf("file type and mode: %d \n",nfile->st_mode);
+printf("size of file: %lu\n",nfile->st_size);
+}
